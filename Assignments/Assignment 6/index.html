@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fruit List</title>
     <style>
         body {
@@ -22,6 +22,9 @@
         h2 {
             text-align: center;
         }
+        .center {
+            text-align: center;
+        }
         #fruitInput {
             padding: 8px;
             font-size: 1em;
@@ -39,7 +42,7 @@
 <body>
     <div class="container">
         <h2>Fruit List</h2>
-        <div style="text-align: center;">
+        <div class="center">
             <input type="text" id="fruitInput" />
             <button id="addBtn">Add</button>
         </div>
@@ -47,27 +50,28 @@
     </div>
     <script>
         const fruits = [];
+
         const fruitInput = document.getElementById('fruitInput');
         const addBtn = document.getElementById('addBtn');
         const fruitList = document.getElementById('fruitList');
 
         function renderFruits() {
-            fruitList.innerHTML = '';
-            fruits.forEach(fruit => {
-                const li = document.createElement('li');
+            fruitList.innerHTML = "";
+            fruits.forEach(function(fruit) {
+                const li = document.createElement("li");
                 li.textContent = fruit;
                 fruitList.appendChild(li);
             });
         }
 
-        addBtn.addEventListener('click', () => {
+        addBtn.onclick = function() {
             const value = fruitInput.value.trim();
             if (value) {
                 fruits.push(value);
-                fruitInput.value = '';
+                fruitInput.value = "";
                 renderFruits();
             }
-        });
+        };
     </script>
 </body>
 </html>
