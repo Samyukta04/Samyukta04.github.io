@@ -34,19 +34,19 @@
             margin-left: 8px;
             cursor: pointer;
         }
-    
     </style>
 </head>
 <body>
     <div class="container">
         <h2>Fruit List</h2>
-        <input type="text" id="fruitInput" />
-        <button id="addBtn">Add</button>
+        <div style="text-align: center;">
+            <input type="text" id="fruitInput" />
+            <button id="addBtn">Add</button>
+        </div>
         <ul id="fruitList"></ul>
     </div>
     <script>
         const fruits = [];
-
         const fruitInput = document.getElementById('fruitInput');
         const addBtn = document.getElementById('addBtn');
         const fruitList = document.getElementById('fruitList');
@@ -66,12 +66,6 @@
                 fruits.push(value);
                 fruitInput.value = '';
                 renderFruits();
-            }
-        });
-
-        fruitInput.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') {
-                addBtn.click();
             }
         });
     </script>
