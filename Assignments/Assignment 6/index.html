@@ -56,12 +56,11 @@
         const fruitList = document.getElementById('fruitList');
 
         function renderFruits() {
-            fruitList.innerHTML = "";
+            let listItems = "";
             fruits.forEach(function(fruit) {
-                const li = document.createElement("li");
-                li.textContent = fruit;
-                fruitList.appendChild(li);
+                listItems += "<li>" + fruit + "</li>";
             });
+            fruitList.innerHTML = listItems;
         }
 
         addBtn.onclick = function() {
