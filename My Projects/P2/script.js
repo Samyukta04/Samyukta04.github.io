@@ -6,7 +6,7 @@ const showLogin = () => {
         <h1>Login Form</h1>
         <p><input type="text" id="txtEmail" placeholder="Email"></p>
         <p><input type="password" id="txtPass" placeholder="Password"></p>
-        <p><button onclick="handleLogin()">Log In</button></p>
+        <p><button onclick="showHome()">Log In</button></p>
         <p><button onclick="showRegister()">Create Account</button></p>
     </div>
     `;
@@ -27,16 +27,7 @@ const showRegister = () => {
     root.innerHTML = str;
 };
 
-const handleLogin = () => {
-    const email = document.getElementById("txtEmail").value.trim();
-    const pass = document.getElementById("txtPass").value.trim();
 
-    if (email && pass) {
-        showHome();
-    } else {
-        alert("Please enter email and password.");
-    }
-};
 
 const handleRegister = () => {
     const name = document.getElementById("txtName").value.trim();
