@@ -7,38 +7,37 @@
 </head>
 <body>
     <h2>Fruit List</h2>
-    <input type="text" id="fruitInput" />
-    <button id="addBtn">Add</button>
-    <ul id="fruitList"></ul>
+    <input type="text" id="f" />
+    <button id="a">Add</button>
+    <ul id="l"></ul>
     <script>
-        let fruits = [];
-        const fruitInput = document.getElementById('fruitInput');
-        const addBtn = document.getElementById('addBtn');
-        const fruitList = document.getElementById('fruitList');
+        let arr = [];
+        const f = document.getElementById('f');
+        const a = document.getElementById('a');
+        const l = document.getElementById('l');
 
-        function renderFruits() {
-            let listItems = "";
-            fruits.forEach(function(fruit, index) {
-                listItems += "<li>" + fruit + 
-                    " <button onclick='deleteFruit(" + index + ")'>Delete</button></li>";
+        function show() {
+            let s = "";
+            arr.forEach(function(x, i) {
+                s += "<li>" + x + " <button onclick='del(" + i + ")'>Delete</button></li>";
             });
-            fruitList.innerHTML = listItems;
+            l.innerHTML = s;
         }
 
-        addBtn.onclick = function() {
-            const value = fruitInput.value.trim();
-            if (value) {
-                fruits.push(value);
-                fruitInput.value = "";
-                renderFruits();
+        a.onclick = function() {
+            let v = f.value;
+            if (v) {
+                arr.push(v);
+                f.value = "";
+                show();
             }
         };
 
-        window.deleteFruit = function(index) {
-            fruits = fruits.filter(function(_, i) {
-                return i !== index;
+        window.del = function(i) {
+            arr = arr.filter(function(_, j) {
+                return j!= i;
             });
-            renderFruits();
+            show();
         };
     </script>
 </body>
