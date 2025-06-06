@@ -9,23 +9,25 @@
     <h2>Fruit List</h2>
     <input type="text" id="f" />
     <button id="a">Add</button>
+    <button id="s">Search</button>
     <ul id="l"></ul>
     <script>
         let arr = [];
         const f = document.getElementById('f');
         const a = document.getElementById('a');
+        const s = document.getElementById('s');
         const l = document.getElementById('l');
 
-        function show() {
+        function show(list = arr) {
             let s = "";
-            arr.forEach(function(x, i) {
+            list.forEach(function(x, i) {
                 s += "<li>" + x + " <button onclick='del(" + i + ")'>Delete</button></li>";
             });
             l.innerHTML = s;
         }
 
         a.onclick = function() {
-            let v = f.value;
+            let v = f.value.trim();
             if (v) {
                 arr.push(v);
                 f.value = "";
@@ -33,11 +35,24 @@
             }
         };
 
+
         window.del = function(i) {
             arr = arr.filter(function(_, j) {
-                return j!= i;
+                return j !== i;
             });
             show();
+        };
+        
+        s.onclick = function() {
+            let v = f.value.toLowerCase();
+            if (v) {
+                let filtered = arr.filter(function(x) {
+                    return x. toLowerCase().includes(v);
+                });
+                show(filtered);
+            } else {
+                show();
+            }
         };
     </script>
 </body>
